@@ -1,6 +1,4 @@
 import React from 'react';
-import Header from './constants/Header';
-import Sidebar from './constants/Sidebar';
 import Note from './Note';
 
 export default function Main(props) {
@@ -14,8 +12,6 @@ export default function Main(props) {
   
   return(    
     <div className="main">
-      <Header />
-      <Sidebar />
       {displayNotes}
     </div>
   )

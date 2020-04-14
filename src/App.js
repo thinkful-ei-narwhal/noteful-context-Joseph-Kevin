@@ -4,6 +4,8 @@ import './App.css';
 import Main from './components/Main';
 import FolderList from './components/FolderList';
 import Note from './components/Note';
+import Header from './components/constants/Header';
+import Sidebar from './components/constants/Sidebar';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -129,10 +131,21 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <Header />
+        <Sidebar state={this.state}/>
         <Switch>
-          <Route exact path='/' render={() => <Main notes={this.state.notes} />}/>
-          <Route exact path='/folder/:id' render={() => <FolderList folders={this.state.folders} />}/>
-          <Route exact path='/note' component={Note}/>
+          <Route 
+            exact path='/' 
+            render={(props) => <Main {...props} notes={this.state.notes} />}
+          />
+          <Route 
+            exact path='/folders/:id'
+            render={(props) => <FolderList {...props}  state={this.state} />}
+          />
+          <Route 
+            exact path='/note' 
+            component={Note}
+          />
         </Switch>
       </div>
     );

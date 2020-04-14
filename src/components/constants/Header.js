@@ -3,7 +3,7 @@ import React from 'react';
 export default function Header() {
   return(
     <header>
-      <h1 className="header">Noteful</h1>
+      <a href="/"><h1 className="header">Noteful</h1></a>
     </header>
   )
 }
