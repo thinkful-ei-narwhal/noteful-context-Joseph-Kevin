@@ -3,12 +3,13 @@ import Header from './constants/Header';
 import Sidebar from './constants/Sidebar';
 
 
-export default function Note() {
+export default function Note(props) {
   return(
     <div className="main">
-      <Header />
-      <Sidebar />
-      <p>From Note</p>
+      <div id={props.id} className="note-items">
+        <h2>{props.title}</h2>
+        <p>{props.content}</p>
+      </div>
     </div>
   )
 }

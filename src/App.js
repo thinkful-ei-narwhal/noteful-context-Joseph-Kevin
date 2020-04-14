@@ -5,7 +5,7 @@ import Main from './components/Main';
 import FolderList from './components/FolderList';
 import Note from './components/Note';
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -130,7 +130,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Switch>
-          <Route exact path='/' component={Main}/>
+          <Route exact path='/' render={() => <Main notes={this.state.notes}/>}/>
           <Route exact path='/folder' component={FolderList}/>
           <Route exact path='/note' component={Note}/>
         </Switch>
@@ -138,5 +138,3 @@ class App extends React.Component {
     );
   }
 }
-
-export default App;
