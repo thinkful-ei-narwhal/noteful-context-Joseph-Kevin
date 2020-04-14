@@ -130,8 +130,8 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <Switch>
-          <Route exact path='/' render={() => <Main notes={this.state.notes}/>}/>
-          <Route exact path='/folder' component={FolderList}/>
+          <Route exact path='/' render={() => <Main notes={this.state.notes} />}/>
+          <Route exact path='/folder/:id' render={() => <FolderList folders={this.state.folders} />}/>
           <Route exact path='/note' component={Note}/>
         </Switch>
       </div>

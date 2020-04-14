@@ -1,12 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Sidebar(props) {
+  let folderLinks = props.folders.map(folder => (
+  <li><Link to="/folder">{folder.name}</Link></li>
+  ))
+
   return(
     <div className="sidebar">
       <ul className="folder-list">
-        <li>Folder 1</li>
-        <li>Folder 2</li>
-        <li>Folder 3</li>
+        {folderLinks}
       </ul>
       <button>Add Folder</button>
     </div>

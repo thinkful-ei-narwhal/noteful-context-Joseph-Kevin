@@ -1,7 +1,4 @@
 import React from 'react';
-import Header from './constants/Header';
-import Sidebar from './constants/Sidebar';
-
 
 export default function Note(props) {
   return(
