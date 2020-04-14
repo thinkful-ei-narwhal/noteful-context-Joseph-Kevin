@@ -1,0 +1,14 @@
+.sidebar {
+  float: left;
+  width: 30%;
+  border: 1px solid black;
+}
+
+.folder-list {
+  list-style: none;
+}
+
+.folder-list li {
+  padding: 20px;
+  border: 1px solid black;
+}
