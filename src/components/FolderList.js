@@ -12,14 +12,13 @@ export default function FolderList(props) {
   )).map(note => (
     <Note 
         key={note.id}
-        note={note.id}
+        id={note.id}
         title={note.name}
-        content={note.content}/>
+        modified={note.modified}/>
   ))
 
   return(
     <div className="main">
-      <h3>{folderToDisplay.name}</h3>
       {displayNotes}
     </div>
   )

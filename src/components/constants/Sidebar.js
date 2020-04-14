@@ -1,16 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default function Sidebar(props) {
   let folderLinks = props.state.folders.map(folder => (
-  <li key={folder.id}><a href={`/folders/${folder.id}`}>{folder.name}</a></li>
+  <span className="nav-item"><NavLink key={folder.id} to={`/folders/${folder.id}`} activeClassName="selected">{folder.name}</NavLink></span>
   ))
 
   return(
     <div className="sidebar">
-      <ul className="folder-list">
+      <nav>
         {folderLinks}
-      </ul>
+      </nav>
       <button>Add Folder</button>
     </div>
     

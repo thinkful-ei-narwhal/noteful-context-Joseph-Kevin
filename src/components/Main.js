@@ -5,9 +5,9 @@ export default function Main(props) {
   let displayNotes = props.notes.map(note => (
       <Note 
         key={note.id}
-        note={note.id}
+        id={note.id}
         title={note.name}
-        content={note.content}/>
+        modified={note.modified}/>
     ))
   
   return(    
