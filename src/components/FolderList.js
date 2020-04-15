@@ -1,25 +1,26 @@
 import React from 'react';
 import Note from './Note';
+import StateContext from './StateContext';
 
 
-export default function FolderList(props) {
-  let folderToDisplay = props.state.folders.find(folder => (
-    folder.id === props.match.params.id
-  ))
+export default class FolderList extends React.Component {
+  static contextType = StateContext;
 
-  let displayNotes = props.state.notes.filter(note => (
-    note.folderId === folderToDisplay.id
-  )).map(note => (
-    <Note 
-        key={note.id}
-        id={note.id}
-        title={note.name}
-        modified={note.modified}/>
-  ))
-
-  return(
-    <div className="main">
-      {displayNotes}
+  render() {
+    const { notes } = this.context;
+    return(
+      <div className="main">
+      {
+        notes.filter(note => (
+          note.folderId === this.props.match.params.id
+        )).map(note => (
+          <Note 
+              key={note.id}
+              id={note.id}
+              title={note.name}
+              modified={note.modified}/>
+        ))
+      }
     </div>
-  )
+  )}
 }
