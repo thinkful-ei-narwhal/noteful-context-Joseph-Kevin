@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Main from './components/Main';
 import FolderList from './components/FolderList';
-import Note from './components/Note';
+import ExpandedNote from './components/ExpandedNote';
 import Header from './components/constants/Header';
 import Sidebar from './components/constants/Sidebar';
 
@@ -128,8 +128,12 @@ export default class App extends React.Component {
     }
   }
 
+  
+
   render() {
+
     return (
+
       <div className="App">
         <Header />
         <Sidebar state={this.state}/>
@@ -143,8 +147,12 @@ export default class App extends React.Component {
             render={(props) => <FolderList {...props}  state={this.state} />}
           />
           <Route 
-            exact path='/note' 
-            component={Note}
+            exact path='/note/:id' 
+            render={(props) => <ExpandedNote {...props} state={this.state} />}
+          />
+          <Route 
+          exact path='/folders/note/:id' 
+          render={(props) => <ExpandedNote {...props} state={this.state} />}
           />
         </Switch>
       </div>
